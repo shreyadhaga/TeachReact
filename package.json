@@ -1,0 +1,23 @@
+{
+  "name": "teachreact",
+  "version": "1.0.0",
+  "description": "a handbook for shreya to teach react",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shreyadhaga/TeachReact.git"
+  },
+  "keywords": [
+    "Teach",
+    "React"
+  ],
+  "author": "Shreya Dhaga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shreyadhaga/TeachReact/issues"
+  },
+  "homepage": "https://github.com/shreyadhaga/TeachReact#readme"
+}
