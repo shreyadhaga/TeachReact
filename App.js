@@ -1,3 +1,5 @@
+import React from "react";
+import ReactDOM from 'react-dom/client';
 // creating an element is job of reactDOM
 // second parameter of createElement keeps the attributes to a tab
 // third parameter can be a single child or an array of chiidren 
