@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "a handbook for shreya to teach react",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel buitld index.html",
     "test": "jest"
   },
   "repository": {
