@@ -6,16 +6,20 @@ import ReactDOM from 'react-dom/client';
 // Functional Components - NEW
 
 // React Functional Copmponent is a function that returns a react elements
-const SubHeadingComponent = () => <h2> Hello Sub React Functional Component</h2>
+const Title = () => (
+    <h1>
+        This title is a react element
+    </h1>
+)
 
 // Component Composition
 const HeadingComponent = () => (
     <div>
-        <h1> Hello React Functional Component</h1>
-        <SubHeadingComponent />
+        <Title />
+        <h1> This is the heading</h1>
     </div>)
 
-
+// JSX Satitizes Data - Handles cross site scripting attacks
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<HeadingComponent/>
+root.render(<HeadingComponent />
 )
