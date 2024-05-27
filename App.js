@@ -1,14 +1,21 @@
 import React from "react";
 import ReactDOM from 'react-dom/client';
 
-// React Element
-const heading = React.createElement('h1', { id: 'heading' }, 'Hello World')
+// React Components
+// Class Based Components - OLD
+// Functional Components - NEW
 
-// JSX - Javascript Syntax to make reaact simpler to write its Syntaxtical Sugar it just ensures that code is like HTML/XML Syntax
+// React Functional Copmponent is a function that returns a react elements
+const SubHeadingComponent = () => <h2> Hello Sub React Functional Component</h2>
 
-const jsxHeading = <h1> Hello JSX </h1>
-// jsxHeading is an react element
-// parcel uses babel to transpile jsx to js which is understandable by browsers 
-// to write JSX in multiple lines its mandatory to wrap it in ()
+// Component Composition
+const HeadingComponent = () => (
+    <div>
+        <h1> Hello React Functional Component</h1>
+        <SubHeadingComponent />
+    </div>)
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(jsxHeading)
+root.render(<HeadingComponent/>
+)
