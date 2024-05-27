@@ -15,7 +15,7 @@ const Title = () => (
 // Component Composition
 const HeadingComponent = () => (
     <div>
-        <Title />
+        {Title()}
         <h1> This is the heading</h1>
     </div>)
 
