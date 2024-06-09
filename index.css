@@ -1,3 +1,135 @@
-#heading {
-    color: red;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 5px dashed red;
+}
+
+.logo-container {
+    width: 50px;
+    height: 50px;
+}
+
+.nav-items>ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-items>ul>li {
+    margin: 10px;
+    padding: 5px;
+}
+
+.search {
+    padding: 20px;
+}
+
+.resturant-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.resturant-card {
+    position: relative;
+    width: 180px;
+    max-height: 450px;
+    aspect-ratio: 0.7;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.resturant-card:hover {
+    cursor: pointer;
+}
+
+.resturant-logo {
+    position: absolute;
+    height: 100%;
+    border-radius: 5px;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+.resturant-details {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(0deg, #000 0%, #7e7e7e9b 50%, #000 100%);
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: 1fr 0.2fr 0.2fr;
+    color: white;
+}
+
+.resturant-card:hover .resturant-details {
+    opacity: 1;
+}
+
+.resturant-card h3 {
+    width: 100%;
+    text-align: center;
+    align-self: center;
+    font-family: sans-serif;
+}
+
+.resturant-rating {
+    display: flex;
+    justify-self: flex-end;
+    align-items: flex-end;
+    padding: 0px 10px;
+}
+
+.resturant-rating svg {
+    height: 20px;
+    width: 40px;
+}
+.resturant-rating svg path{
+    stroke: #ffffff;
+}
+.resturant-delivery-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: end;
+    text-align: center;
+    font-size: 12px;
+    font-family: system-ui;
+    padding: 5px;
+}
+
+
+.resturant-cuisine-details {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.resturant-cuisine-details svg {
+    height: 20px;
+    width: 40px;
+    fill: #ffffff;
+}
+
+.resturant-eta-details {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.resturant-eta-details svg {
+    height: 20px;
+    width: 20px;
+}
+
+.resturant-eta-details svg path {
+    stroke: #ffffff;
 }
