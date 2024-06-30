@@ -50,6 +50,7 @@
     border-radius: 5px;
     width: 100%;
     top: 0;
+    object-fit: cover;
     z-index: -1;
 }
 
@@ -93,9 +94,11 @@
     height: 20px;
     width: 40px;
 }
-.resturant-rating svg path{
+
+.resturant-rating svg path {
     stroke: #ffffff;
 }
+
 .resturant-delivery-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -104,13 +107,15 @@
     font-size: 12px;
     font-family: system-ui;
     padding: 5px;
+    display: flex;
 }
 
-
-.resturant-cuisine-details {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.resturant-delivery-details span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50px;
+    display: inline-block;
 }
 
 .resturant-cuisine-details svg {
