@@ -24,11 +24,16 @@
     padding: 20px;
 }
 
+.filter-btn{
+    padding: 5px;
+    margin: 1rem;
+    cursor: pointer;
+}
 .resturant-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .resturant-card {

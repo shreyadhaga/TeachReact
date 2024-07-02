@@ -1,48 +1,4 @@
-import React, { useEffect } from "react";
-import { createRoot } from 'react-dom/client';
-import Logo from './assets/Logo';
-import { Clock, Cuisine, Star } from "./assets/Icons";
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <Logo />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-const ResturantCard = (props) => {
-    const { name, cuisines, rating, sla, cloudinaryImageId } = props.resData?.info;
-    return (
-        <div className="resturant-card">
-            <img alt='resturant-logo' className='resturant-logo' src={
-                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
-            <div className="resturant-details">
-                <div className="resturant-name">
-                    <h3> {name} </h3>
-                </div>
-                <div className="resturant-rating">
-                    <Star />
-                    <span> {rating}</span>
-                </div>
-                <div className="resturant-delivery-details">
-                    <div className="resturant-cuisine-details"><Cuisine /> <span>{cuisines.join(',')}</span></div>
-                    <div className="resturant-eta-details"> <Clock /><span>{sla.deliveryTime} mins </span></div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-let resturantData = {
+const resturantData = {
     "data": [
         {
             "info": {
@@ -59,9 +15,9 @@ let resturantData = {
                     "Desserts",
                     "Beverages"
                 ],
-                "avgRating": 4.5,
+                "avgRating": 3.1,
                 "parentId": "236243",
-                "avgRatingString": "4.5",
+                "avgRatingString": "3.1",
                 "totalRatingsString": "10K+",
                 "sla": {
                     "deliveryTime": 25,
@@ -294,10 +250,10 @@ let resturantData = {
                 "areaName": "Koramangala",
                 "costForTwo": "₹200 for two",
                 "cuisines": ["South Indian"],
-                "avgRating": 4.6,
+                "avgRating": 5.0,
                 "veg": true,
                 "parentId": "247814",
-                "avgRatingString": "4.6",
+                "avgRatingString": "5.0",
                 "totalRatingsString": "20+",
                 "sla": {
                     "deliveryTime": 21,
@@ -368,13 +324,13 @@ let resturantData = {
                     "Chaat",
                     "Healthy Food"
                 ],
-                "avgRating": 4.6,
+                "avgRating": 3.8,
                 "parentId": "21147",
                 "avgRatingString": "4.6",
                 "totalRatingsString": "10K+",
                 "sla": {
                     "deliveryTime": 25,
-                    "lastMileTravel": 1.6,
+                    "lastMileTravel": 3.8,
                     "serviceability": "SERVICEABLE",
                     "slaString": "25-30 mins",
                     "lastMileTravelString": "1.6 km",
@@ -537,9 +493,9 @@ let resturantData = {
                 "areaName": "Koramangala",
                 "costForTwo": "₹137 for two",
                 "cuisines": ["South Indian"],
-                "avgRating": 4.6,
+                "avgRating": 4.7,
                 "parentId": "898",
-                "avgRatingString": "4.6",
+                "avgRatingString": "4.7",
                 "totalRatingsString": "10K+",
                 "sla": {
                     "deliveryTime": 20,
@@ -617,9 +573,9 @@ let resturantData = {
                 "areaName": "Koramangala",
                 "costForTwo": "₹250 for two",
                 "cuisines": ["Juices", "Healthy Food"],
-                "avgRating": 4.6,
+                "avgRating": 3.0,
                 "parentId": "21231",
-                "avgRatingString": "4.6",
+                "avgRatingString": "3.0",
                 "totalRatingsString": "1K+",
                 "sla": {
                     "deliveryTime": 34,
@@ -696,52 +652,5 @@ let resturantData = {
         }
     ]
 }
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">
-                search
-            </div>
-            <div className="resturant-container">
-                {resturantData.data.map(resturant => (
-                    <ResturantCard
-                        key={resturant.info.id}
-                        resData={resturant}
-                    />
-                ))}
-                {resturantData.data.map(resturant => (
-                    <ResturantCard
-                        key={`2${resturant.info.id}`}
-                        resData={resturant}
-                    />
-                ))}
-                {resturantData.data.map(resturant => (
-                    <ResturantCard
-                        key={`3${resturant.info.id}`}
-                        resData={resturant}
-                    />
-                ))}
-                {resturantData.data.map(resturant => (
-                    <ResturantCard
-                        key={`4${resturant.info.id}`}
-                        resData={resturant}
-                    />
-                ))}
-            </div>
-        </div>
-    )
-}
-// Component Composition
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header />
-            <Body />
-        </div>
-    )
-}
 
-// JSX Satitizes Data - Handles cross site scripting attacks
-const domNode = document.getElementById('root');
-const root = createRoot(domNode);
-root.render(<AppLayout />);
+export default resturantData;
