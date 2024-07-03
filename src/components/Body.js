@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ResturantCard from "./ResturantCard";
 import resturantData from "../utils/mockData";
 
 const Body = () => {
     // Local State Variable - Super powerful variable
-    const [listOfResturant, setListOfResturant] = useState(resturantData.data);
+    const [listOfResturant, setListOfResturant] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    const fetchData = async () => {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING%27");
+        const json = await data.json();
+        setListOfResturant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+    }
     return (
         <div className="body">
             <div className="filter">
@@ -14,19 +24,10 @@ const Body = () => {
                         let filtredData = listOfResturant.filter(res =>
                             res.info.avgRating > 4.0
                         );
-                        // console.log(filtredData)
                         setListOfResturant(filtredData)
                     }}
                 >
                     Top Rated
-                </button>
-                <button
-                    className="filter-btn"
-                    onClick={() => {
-                        setListOfResturant(resturantData.data)
-                    }}
-                >
-                    Reset
                 </button>
             </div>
             <div className="resturant-container">
@@ -36,24 +37,6 @@ const Body = () => {
                         resData={resturant}
                     />
                 ))}
-                {/* {resturantData.data.map(resturant => (
-                    <ResturantCard
-                        key={`2${resturant.info.id}`}
-                        resData={resturant}
-                    />
-                ))}
-                {resturantData.data.map(resturant => (
-                    <ResturantCard
-                        key={`3${resturant.info.id}`}
-                        resData={resturant}
-                    />
-                ))}
-                {resturantData.data.map(resturant => (
-                    <ResturantCard
-                        key={`4${resturant.info.id}`}
-                        resData={resturant}
-                    />
-                ))} */}
             </div>
         </div>
     )
