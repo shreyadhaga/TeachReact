@@ -24,17 +24,39 @@
     padding: 20px;
 }
 
-.filter-btn{
+.filter .shimmer-button {
+    border: 1px solid #eee;
+    height: 20px;
+    width: 60px;
+    padding: 5px;
+    margin: 1rem;
+    border-radius: 45px;
+    background-color: #eee;
+}
+
+.filter-btn {
     padding: 5px;
     margin: 1rem;
     cursor: pointer;
 }
+
 .resturant-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
 }
+
+.shimmer-resturant-card {
+    border: 1px solid #eee;
+    background-color: #eee;
+    position: relative;
+    width: 180px;
+    max-height: 450px;
+    aspect-ratio: 0.7;
+    border-radius: 5px;
+}
+
 
 .resturant-card {
     position: relative;
