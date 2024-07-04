@@ -16,3 +16,6 @@
 - HTTPs
 - Tree Shaking : remove unsed code 
 - Different dec and prod bundles
+
+# What to do to run this 
+- please ensure that you have https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino?hl=en or similar enstention up and running
