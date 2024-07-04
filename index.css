@@ -24,6 +24,18 @@
     padding: 20px;
 }
 
+.search-box {
+    padding: 5px;
+}
+
+.search button {
+    padding: 5px;
+}
+
+.filter {
+    display: flex;
+}
+
 .filter .shimmer-button {
     border: 1px solid #eee;
     height: 20px;
