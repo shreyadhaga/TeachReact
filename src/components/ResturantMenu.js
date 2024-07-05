@@ -10,17 +10,20 @@ const ResturantMenu = () => {
         let result = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.65420&lng=77.23730&restaurantId=330141&catalog_qa=undefined&submitAction=ENTER");
         let json = await result.json();
         setResInfo(json.data)
-        console.log(json.data)
+        console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[5].card.card.itemCards)
+
     }
     const { name, costForTwoMessage, cuisines } = resInfo?.cards[2]?.card?.card?.info;
-    const { itemCards } = resInfo?.cards[7]?.card?.card?.itemCards;
+    // const { itemCards } = resInfo?.cards[7]?.card?.card?.itemCards;
     return (resInfo === null) ? <Shimmer /> :
         (<div className='menu'>
-            <h1> {name}</h1>
+            {/* <h1> {name}</h1>
             <p> {costForTwoMessage} </p>
-            <p> {cuisines.join(',')}</p>
+            <p> {cuisines.join(',')}</p> */}
             <ul>
-                <li> Menu items </li>
+                {/* {itemCards.map(x => (
+                    <li>{x?.card?.info?.name}</li>
+                ))} */}
             </ul>
         </div>
         )
