@@ -1,14 +1,13 @@
-import { useState } from "react"
-
-const User = ({ name, location }) => {
-    const [count, setCount] = useState(0);
+import useFetchUserData from "../utils/useFetchUserData"
+const User = () => {
+    const userData = useFetchUserData();
+    const { name, location, html_url, login, avatar_url } = userData;
     return (
         <div className="user-card">
-            <h1> Count: {count}</h1>
-            <button onClick={() => { setCount(count + 1) }}> Count Increase</button>
+            <img alt='avtar url' src={`${avatar_url}`} />
             <h2> Name : {name} </h2>
             <h3> Location: {location} </h3>
-            <h4> Twitter: @wombatmerry</h4>
+            <h4> Github: <a href={`${html_url}`} target="_blank"> {login} </a></h4>
         </div>
     )
 }

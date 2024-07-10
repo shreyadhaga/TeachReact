@@ -191,3 +191,17 @@
     display: block;
     margin: auto auto;
 }
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.online {
+    background-color: #39a815;
+}
+
+.dot.offline {
+    background-color: red;
+}
