@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import { MAIN_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useResturantsList from "../utils/useResturantsList";
 
