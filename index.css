@@ -177,3 +177,9 @@
 .resturant-eta-details svg path {
     stroke: #ffffff;
 }
+
+.user-card {
+    border: 3px dashed grey;
+    width: max-content;
+    padding: 10px;
+}
