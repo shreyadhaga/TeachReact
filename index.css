@@ -179,7 +179,15 @@
 }
 
 .user-card {
-    border: 3px dashed grey;
+    border: 3px dashed #0000008c;
     width: max-content;
     padding: 10px;
+}
+
+.user-card img {
+    width: 100px;
+    border: 3px dashed #0000008c;
+    border-radius: 50%;
+    display: block;
+    margin: auto auto;
 }
