@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ResturantCard from "./ResturantCard";
+import ResturantCard, { withPromotedLabel } from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -14,7 +14,9 @@ const Body = () => {
     const [filtredList, setFilteredList] = useState([]);
     useEffect(() => {
         setFilteredList(listOfResturant)
-    }, [listOfResturant])
+    }, [listOfResturant]);
+
+    const ResturantCardPromoted = withPromotedLabel(ResturantCard);
     if (onlineStatus === false) {
         return <h1> Looks like you are offline </h1>
     }
@@ -59,11 +61,14 @@ const Body = () => {
             </div>
             <div className="flex flex-wrap gap-6 items-stretch justify-center">
                 {filtredList && filtredList.map(resturant => (
-                    // <Link key={resturant.info.id} to={`/resturant/${resturant.info.id}`}>
-                    <Link key={resturant.info.id} to={`/resturant/123`}>
-                        <ResturantCard
-                            resData={resturant}
-                        />
+                    <Link className='h-full p-x-2 w-60 border border-gray-200 bg-slate-300 rounded-lg gap-2'
+                        key={resturant.info.id} to={`/resturant/123`}>
+                        {resturant.info.veg ?
+                            <ResturantCardPromoted
+                                resData={resturant} /> :
+                            <ResturantCard
+                                resData={resturant}
+                            />}
                     </Link>
                 ))}
             </div>

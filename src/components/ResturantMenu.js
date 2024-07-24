@@ -8,12 +8,14 @@ const ResturantMenu = () => {
 
     if (resInfo === null) { return <Shimmer /> }
     else {
-        const { name, costForTwoMessage, cuisines } =  resInfo?.cards[2]?.card?.card?.info;
-        return  (<div className='menu'>
-            <h1> {name}</h1>
-            <p> {costForTwoMessage} </p>
-            <p> {cuisines.join(',')}</p>
-        </div>)
+        const { name, costForTwoMessage, cuisines } = resInfo?.cards[2]?.card?.card?.info;
+        return (
+            <div>
+                <h1 className='font-extrabold text-3xl'> {name}</h1>
+                <p className='font-bold text-lg'> {costForTwoMessage} </p>
+                <p className='text-lg'> {cuisines.join(',')}</p>
+            </div>
+        )
     }
 }
 
