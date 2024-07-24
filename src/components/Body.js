@@ -25,33 +25,39 @@ const Body = () => {
 
     return (
         <div className="body">
-            <div className="filter">
-                <div type='text' className="search">
-                    <input value={searchText} type="text" className="search-box" onChange={(e) => setSearchText(e.target.value)} />
-                    <button onClick={() => {
-                        if (searchText != '') {
-                            let filtredData = listOfResturant.filter(res =>
-                                res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
-                            )
-                            setFilteredList(filtredData)
-                        } else {
-                            setFilteredList(listOfResturant)
-                        }
-                    }}>Search</button>
+            <div className="flex justify-between m-2">
+                <div type='text'>
+                    <input value={searchText} type="text"
+                        className="border border-gray-600 rounded-md p-1 mr-2"
+                        onChange={(e) => setSearchText(e.target.value)} />
+                    <button
+                        className="border border-gray-600 rounded-md p-1 bg-gray-400 text-white"
+                        onClick={() => {
+                            if (searchText != '') {
+                                let filtredData = listOfResturant.filter(res =>
+                                    res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
+                                )
+                                setFilteredList(filtredData)
+                            } else {
+                                setFilteredList(listOfResturant)
+                            }
+                        }}>Search</button>
                 </div>
-                <button
-                    className="filter-btn"
-                    onClick={() => {
-                        let filtredData = listOfResturant.filter(res =>
-                            res.info.avgRating > 4.5
-                        );
-                        setFilteredList(filtredData)
-                    }}
-                >
-                    Top Rated
-                </button>
+                <div>
+                    <button
+                        className="border border-gray-600 rounded-md p-1 bg-gray-400 text-white"
+                        onClick={() => {
+                            let filtredData = listOfResturant.filter(res =>
+                                res.info.avgRating > 4.5
+                            );
+                            setFilteredList(filtredData)
+                        }}
+                    >
+                        Top Rated
+                    </button>
+                </div>
             </div>
-            <div className="resturant-container">
+            <div className="flex flex-wrap gap-6 items-stretch justify-center">
                 {filtredList && filtredList.map(resturant => (
                     // <Link key={resturant.info.id} to={`/resturant/${resturant.info.id}`}>
                     <Link key={resturant.info.id} to={`/resturant/123`}>
