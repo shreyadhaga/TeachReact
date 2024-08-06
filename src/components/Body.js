@@ -62,7 +62,7 @@ const Body = () => {
             <div className="flex flex-wrap gap-6 items-stretch justify-center">
                 {filtredList && filtredList.map(resturant => (
                     <Link className='h-full p-x-2 w-60 border border-gray-200 bg-slate-300 rounded-lg gap-2'
-                        key={resturant.info.id} to={`/resturant/123`}>
+                        key={resturant.info.id} to={`/resturant/${resturant.info.id}&catalog_qa=undefined&submitAction=ENTER`}>
                         {resturant.info.veg ?
                             <ResturantCardPromoted
                                 resData={resturant} /> :
