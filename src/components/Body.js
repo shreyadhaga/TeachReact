@@ -57,7 +57,7 @@ const Body = () => {
                             setFilteredList(filtredData)
                         }}
                     >
-                        Top Rated
+                        Veg
                     </button>
                 </div>
                 <div>
