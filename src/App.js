@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./components/About";
@@ -7,14 +7,25 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Header from "./components/Header";
 import ResturantMenu from "./components/ResturantMenu";
+import UserContext from "./utils/UserContext";
 
 // Component Composition
 const AppLayout = () => {
+    // what if we have authentication it will most likely 
+    const [userName, setUserName] = useState();
+    useEffect(() => {
+        let data = {
+            name: 'Shreya Dhaga'
+        };
+        setUserName(data.name)
+    }, [])
     return (
-        <div className="app">
-            <Header />
-            <Outlet />
-        </div>
+        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+            <div className="app">
+                <Header />
+                <Outlet />
+            </div>
+        </UserContext.Provider>
     )
 }
 const Grocery = lazy(() => import('./components/Grocery'))

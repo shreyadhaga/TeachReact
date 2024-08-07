@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class UserClass extends React.Component {
     constructor(props) {
@@ -19,14 +20,18 @@ class UserClass extends React.Component {
         this.setState({
             userInfo: json
         })
-        console.log(json)
+        // console.log(json)
     }
     render() {
         const { name, location, html_url, login, avatar_url } = this.state.userInfo;
         return (
             <div className="user-card">
                 <img alt='avtar url' src={`${avatar_url}`} />
-                <h2> Name : {name} </h2>
+                <UserContext.Consumer>
+                    {({ loggedInUser }) => (
+                        <h2>Name : {loggedInUser}</h2>
+                    )}
+                </UserContext.Consumer>
                 <h3> Location: {location} </h3>
                 <h4> Github: <a href={`${html_url}`} target="_blank"> {login} </a></h4>
             </div>

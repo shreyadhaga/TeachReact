@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ResturantCard, { withPromotedLabel } from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useResturantsList from "../utils/useResturantsList";
+import UserContext from "../utils/UserContext";
 
 
 const Body = () => {
@@ -16,6 +17,7 @@ const Body = () => {
         setFilteredList(listOfResturant)
     }, [listOfResturant]);
 
+    const { loggedInUser, setUserName } = useContext(UserContext)
     const ResturantCardPromoted = withPromotedLabel(ResturantCard);
     if (onlineStatus === false) {
         return <h1> Looks like you are offline </h1>
@@ -28,7 +30,7 @@ const Body = () => {
     return (
         <div className="body">
             <div className="flex justify-between m-2">
-                <div type='text'>
+                <div>
                     <input value={searchText} type="text"
                         className="border border-gray-600 rounded-md p-1 mr-2"
                         onChange={(e) => setSearchText(e.target.value)} />
@@ -57,6 +59,12 @@ const Body = () => {
                     >
                         Top Rated
                     </button>
+                </div>
+                <div>
+                    <label> User Name </label>
+                    <input type="text" className='border border-black p-2'
+                        value={loggedInUser}
+                        onChange={(e) => setUserName(e.target.value)} />
                 </div>
             </div>
             <div className="flex flex-wrap gap-6 items-stretch justify-center">
