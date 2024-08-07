@@ -15,7 +15,7 @@ function ResturantCategory({ data }) {
         </span>
         <span>⬇️</span>
       </div>
-      {showItems && <ItemList items={data.itemCards} />}
+      {showItems && <ItemList items={data.itemCards} /> }
     </div>
   )
 }
